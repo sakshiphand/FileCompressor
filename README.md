@@ -46,7 +46,7 @@ The application compresses the selected file using Huffman Coding and displays t
 <p align="center">
   <img src="screenshots/Screenshot%202026-07-24%20014816.png" width="850">
 </p>
-
+---
 ### 🔄 Decompression Process
 
 The application decompresses the `.huff` file and reconstructs the original file without data loss.
@@ -118,32 +118,6 @@ The application follows this workflow:
 2. Huffman information is reconstructed.
 3. Encoded bits are decoded.
 4. The original file data is restored.
-
----
-
-# 📸 Application Screenshots
-
-## 🗜️ Compression Process
-
-The user selects a file and clicks **Compress File**.
-
-The application creates a `.huff` file and displays the compression statistics.
-
-<p align="center">
-  <img src="screenshots/Screenshot%202026-07-24%20014816.png" width="850">
-</p>
-
----
-
-## 🔄 Decompression Process
-
-The compressed `.huff` file can then be selected and decompressed.
-
-The application reconstructs the original file and displays the decompressed file size.
-
-<p align="center">
-  <img src="screenshots/Screenshot%202026-07-24%20014844.png" width="850">
-</p>
 
 ---
 
