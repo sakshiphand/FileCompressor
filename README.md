@@ -37,6 +37,24 @@ It also provides compression statistics such as original size, compressed size, 
 - 📁 Supports text, PDF, and other binary file formats
 
 ---
+## 📸 Application Screenshots
+
+### 🗜️ Compression Process
+
+The application compresses the selected file using Huffman Coding and displays the compression statistics.
+
+<p align="center">
+  <img src="screenshots/Screenshot%202026-07-24%20014816.png" width="850">
+</p>
+
+### 🔄 Decompression Process
+
+The application decompresses the `.huff` file and reconstructs the original file without data loss.
+
+<p align="center">
+  <img src="screenshots/Screenshot%202026-07-24%20014844.png" width="850">
+</p>
+--
 
 ## 🛠️ Tech Stack
 
