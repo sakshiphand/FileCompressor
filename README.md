@@ -46,7 +46,7 @@ The application compresses the selected file using Huffman Coding and displays t
 <p align="center">
   <img src="screenshots/Screenshot%202026-07-24%20014816.png" width="850">
 </p>
----
+
 ### 🔄 Decompression Process
 
 The application decompresses the `.huff` file and reconstructs the original file without data loss.
