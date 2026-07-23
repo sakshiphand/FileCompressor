@@ -1,0 +1,24 @@
+# Qt build files
+build/
+build-*/
+
+# Qt Creator
+.qtcreator/
+*.user
+*.user.*
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Compiled files
+*.exe
+*.o
+*.obj
+*.dll
+
+# Temporary files
+*.tmp
+*.log

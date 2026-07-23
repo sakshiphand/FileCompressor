@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+
+ <widget class="QMainWindow" name="MainWindow">
+
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>720</height>
+   </rect>
+  </property>
+
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>650</height>
+   </size>
+  </property>
+
+  <property name="windowTitle">
+   <string>File Compressor</string>
+  </property>
+
+  <property name="styleSheet">
+   <string notr="true">
+
+QMainWindow {
+    background-color: #F4F7FB;
+}
+
+QLabel {
+    color: #1F2937;
+}
+
+QPushButton {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background-color: #1D4ED8;
+}
+
+QPushButton:pressed {
+    background-color: #1E40AF;
+}
+
+QProgressBar {
+    border: 1px solid #CBD5E1;
+    border-radius: 7px;
+    background-color: #E2E8F0;
+    text-align: center;
+    min-height: 18px;
+    color: #1F2937;
+    font-weight: 600;
+}
+
+QProgressBar::chunk {
+    background-color: #2563EB;
+    border-radius: 6px;
+}
+
+QGroupBox {
+    background-color: white;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    margin-top: 18px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111827;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0px 10px;
+}
+
+   </string>
+  </property>
+
+
+  <widget class="QWidget" name="centralwidget">
+
+   <layout class="QVBoxLayout" name="mainLayout">
+
+    <property name="leftMargin">
+     <number>100</number>
+    </property>
+
+    <property name="rightMargin">
+     <number>100</number>
+    </property>
+
+    <property name="topMargin">
+     <number>35</number>
+    </property>
+
+    <property name="bottomMargin">
+     <number>35</number>
+    </property>
+
+    <property name="spacing">
+     <number>15</number>
+    </property>
+
+
+    <!-- TITLE -->
+
+    <item>
+     <widget class="QLabel" name="label">
+
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+
+      <property name="text">
+       <string>File Compression &amp; Decompression</string>
+      </property>
+
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+
+     </widget>
+    </item>
+
+
+    <!-- SUBTITLE -->
+
+    <item>
+     <widget class="QLabel" name="subtitleLabel">
+
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+
+      <property name="styleSheet">
+       <string notr="true">
+color: #64748B;
+       </string>
+      </property>
+
+      <property name="text">
+       <string>Lossless File Compression using Huffman Coding</string>
+      </property>
+
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+
+     </widget>
+    </item>
+    <!-- SPACER -->
+
+    <item>
+     <spacer name="titleSpacer">
+
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+
+      <property name="sizeHint">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+
+     </spacer>
+    </item>
+
+
+    <!-- BROWSE BUTTON -->
+
+    <item>
+     <layout class="QHBoxLayout" name="browseLayout">
+
+      <item>
+       <spacer name="browseLeftSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="selectFileButton">
+
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>45</height>
+         </size>
+        </property>
+
+        <property name="text">
+         <string>Browse File</string>
+        </property>
+
+       </widget>
+      </item>
+
+      <item>
+       <spacer name="browseRightSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+     </layout>
+    </item>
+
+
+    <!-- SELECTED FILE -->
+
+    <item>
+     <widget class="QLabel" name="filePathLabel">
+
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+
+      <property name="styleSheet">
+       <string notr="true">
+color: #475569;
+       </string>
+      </property>
+
+      <property name="text">
+       <string>No file selected - browse a file to begin</string>
+      </property>
+
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+
+     </widget>
+    </item>
+
+
+    <!-- BUTTONS -->
+
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+
+      <property name="spacing">
+       <number>30</number>
+      </property>
+
+      <item>
+       <spacer name="buttonLeftSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+
+      <item>
+       <widget class="QPushButton" name="compressButton">
+
+        <property name="minimumSize">
+         <size>
+          <width>170</width>
+          <height>48</height>
+         </size>
+        </property>
+
+        <property name="text">
+         <string>Compress File</string>
+        </property>
+
+       </widget>
+      </item>
+
+
+      <item>
+       <widget class="QPushButton" name="decompressButton">
+
+        <property name="minimumSize">
+         <size>
+          <width>170</width>
+          <height>48</height>
+         </size>
+        </property>
+
+        <property name="text">
+         <string>Decompress File</string>
+        </property>
+
+       </widget>
+      </item>
+
+
+      <item>
+       <spacer name="buttonRightSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+     </layout>
+    </item>
+
+
+    <!-- PROGRESS -->
+
+    <item>
+     <layout class="QHBoxLayout" name="progressLayout">
+
+      <item>
+       <spacer name="progressLeftSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+
+        <property name="minimumSize">
+         <size>
+          <width>450</width>
+          <height>25</height>
+         </size>
+        </property>
+
+        <property name="maximumSize">
+         <size>
+          <width>550</width>
+          <height>25</height>
+         </size>
+        </property>
+
+        <property name="value">
+         <number>0</number>
+        </property>
+
+       </widget>
+      </item>
+
+
+      <item>
+       <spacer name="progressRightSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+     </layout>
+    </item>
+
+
+    <!-- STATUS -->
+
+    <item>
+     <widget class="QLabel" name="statusLabel">
+
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+
+      <property name="styleSheet">
+       <string notr="true">
+color: #2563EB;
+       </string>
+      </property>
+
+      <property name="text">
+       <string>Ready</string>
+      </property>
+
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+
+     </widget>
+    </item>
+
+
+    <!-- STATISTICS -->
+
+    <item>
+     <layout class="QHBoxLayout" name="statisticsOuterLayout">
+
+      <item>
+       <spacer name="statisticsLeftSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+
+      <item>
+       <widget class="QGroupBox" name="statisticsGroupBox">
+
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>210</height>
+         </size>
+        </property>
+
+        <property name="maximumSize">
+         <size>
+          <width>600</width>
+          <height>220</height>
+         </size>
+        </property>
+
+        <property name="title">
+         <string>Compression Statistics</string>
+        </property>
+
+
+        <layout class="QVBoxLayout" name="statisticsLayout">
+
+         <property name="leftMargin">
+          <number>35</number>
+         </property>
+
+         <property name="rightMargin">
+          <number>35</number>
+         </property>
+
+         <property name="topMargin">
+          <number>25</number>
+         </property>
+
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
+
+         <property name="spacing">
+          <number>10</number>
+         </property>
+
+
+         <item>
+          <widget class="QLabel" name="originalSizeLabel">
+
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+
+           <property name="text">
+            <string>Original Size: -</string>
+           </property>
+
+          </widget>
+         </item>
+
+
+         <item>
+          <widget class="QLabel" name="compressedSizeLabel">
+
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+
+           <property name="text">
+            <string>Compressed Size: -</string>
+           </property>
+
+          </widget>
+         </item>
+
+
+         <item>
+          <widget class="QLabel" name="decompressedSizeLabel">
+
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+
+           <property name="text">
+            <string>Decompressed Size: -</string>
+           </property>
+
+          </widget>
+         </item>
+
+
+         <item>
+          <widget class="QLabel" name="compressionRatioLabel">
+
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+
+           <property name="text">
+            <string>Space Saved: -</string>
+           </property>
+
+          </widget>
+         </item>
+
+        </layout>
+
+       </widget>
+      </item>
+
+
+      <item>
+       <spacer name="statisticsRightSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+
+     </layout>
+    </item>
+
+
+    <!-- BOTTOM SPACE -->
+
+    <item>
+     <spacer name="bottomSpacer">
+
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+
+      <property name="sizeHint">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+
+     </spacer>
+    </item>
+
+
+   </layout>
+  </widget>
+
+
+  <widget class="QMenuBar" name="menubar"/>
+
+  <widget class="QStatusBar" name="statusbar"/>
+
+ </widget>
+
+ <resources/>
+ <connections/>
+
+</ui>
